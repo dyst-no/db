@@ -1,0 +1,42 @@
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import postgres from 'postgres';
+import chalk from 'chalk';
+import { config, resolvePath } from '../config';
+import { getEnvironment } from '../environment';
+
+export async function seed() {
+  const env = getEnvironment();
+
+  const seedsDir = resolvePath(config.seedsDir);
+
+  // Connect to the database
+  const sql = postgres(`postgres://${env.PGUSER}:${env.PGPASSWORD}@${env.PGHOST}/${env.PGDATABASE}`, {
+    max: 1,
+  });
+
+  try {
+    // Get all seed files
+    const seedFiles = fs
+      .readdirSync(seedsDir)
+      .filter((file) => file.endsWith('.sql'))
+      .sort();
+
+    if (seedFiles.length === 0) {
+      console.log(chalk.blue('ℹ️  No seed files found'));
+      return;
+    }
+
+    // Apply each seed file
+    for (const file of seedFiles) {
+      const seedContent = fs.readFileSync(path.join(seedsDir, file), 'utf-8');
+      await sql.unsafe(seedContent);
+      console.log(chalk.green(`✅ Applied seed: ${file}`));
+    }
+  } catch (error) {
+    console.error(chalk.red('⛔ Failed to seed database:'), error);
+    throw error;
+  } finally {
+    await sql.end();
+  }
+}

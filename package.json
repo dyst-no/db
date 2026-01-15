@@ -1,0 +1,24 @@
+{
+  "name": "@dyst-no/db",
+  "private": false,
+  "version": "0.0.1",
+  "module": "src/index.ts",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "peerDependencies": {
+    "zod": "^3.25.67 || ^4.1.12",
+    "dotenv": "^16.4.7",
+    "postgres": "^3.4.5"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^20.11.30",
+    "commander": "^13.1.0",
+    "chalk": "^5.4.1",
+    "zod": "^3.25.67 || ^4.1.12",
+    "dotenv": "^16.4.7",
+    "postgres": "^3.4.5"
+  }
+}
