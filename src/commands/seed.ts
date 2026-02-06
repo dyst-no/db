@@ -1,6 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import postgres from 'postgres';
+import { SQL } from 'bun';
 import chalk from 'chalk';
 import { config, resolvePath } from '../config';
 import { getEnvironment } from '../environment';
@@ -11,8 +11,11 @@ export async function seed() {
   const seedsDir = resolvePath(config.seedsDir);
 
   // Connect to the database
-  const sql = postgres(`postgres://${env.PGUSER}:${env.PGPASSWORD}@${env.PGHOST}/${env.PGDATABASE}`, {
-    max: 1,
+  const sql = new SQL({
+    host: env.PGHOST,
+    user: env.PGUSER,
+    password: env.PGPASSWORD,
+    database: env.PGDATABASE,
   });
 
   try {

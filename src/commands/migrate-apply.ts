@@ -1,4 +1,4 @@
-import postgres from 'postgres';
+import { SQL } from 'bun';
 import * as fs from 'node:fs';
 import chalk from 'chalk';
 import { config, resolvePath } from '../config';
@@ -14,12 +14,11 @@ export async function migrateApply() {
     throw new Error('Migration file not found');
   }
 
-  const sql = postgres(`postgres://${env.PGUSER}:${env.PGPASSWORD}@${env.PGHOST}/${env.PGDATABASE}`, {
-    max: 1,
-    onnotice: (notice) => {
-      // Just print the message part of the notice
-      console.log(notice.message);
-    },
+  const sql = new SQL({
+    host: env.PGHOST,
+    user: env.PGUSER,
+    password: env.PGPASSWORD,
+    database: env.PGDATABASE,
   });
 
   try {
