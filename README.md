@@ -14,6 +14,13 @@ Run the CLI with:
 bunx dyst-db migrate
 ```
 
+Check the package locally with:
+
+```bash
+bun run typecheck
+bun run format
+```
+
 ## Commands
 
 - `init` - Initialize database directory structure
