@@ -1,4 +1,4 @@
-import postgres from 'postgres';
+import { SQL } from 'bun';
 import chalk from 'chalk';
 import { getEnvironment } from '../environment';
 
@@ -6,8 +6,11 @@ export async function create() {
   const env = getEnvironment();
 
   // Connect to postgres database to be able to create the target database
-  const sql = postgres(`postgres://${env.PGUSER}:${env.PGPASSWORD}@${env.PGHOST}/postgres`, {
-    max: 1,
+  const sql = new SQL({
+    host: env.PGHOST,
+    user: env.PGUSER,
+    password: env.PGPASSWORD,
+    database: 'postgres',
   });
 
   try {

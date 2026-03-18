@@ -14,6 +14,7 @@ program
   .action(async () => {
     try {
       await init();
+      process.exit(0);
     } catch (error) {
       console.error(chalk.red('Error:'), error);
       process.exit(1);
@@ -26,6 +27,7 @@ program
   .action(async () => {
     try {
       await create();
+      process.exit(0);
     } catch (error) {
       console.error(chalk.red('Error:'), error);
       process.exit(1);
@@ -38,6 +40,7 @@ program
   .action(async () => {
     try {
       await drop();
+      process.exit(0);
     } catch (error) {
       console.error(chalk.red('Error:'), error);
       process.exit(1);
@@ -48,8 +51,14 @@ program
   .command('migrate')
   .description('Migrate the database')
   .action(async () => {
-    migrateBuild();
-    await migrateApply();
+    try {
+      migrateBuild();
+      await migrateApply();
+      process.exit(0);
+    } catch (error) {
+      console.error(chalk.red('Error:'), error);
+      process.exit(1);
+    }
   });
 
 program
@@ -58,6 +67,7 @@ program
   .action(async () => {
     try {
       await seed();
+      process.exit(0);
     } catch (error) {
       console.error(chalk.red('Error:'), error);
       process.exit(1);
@@ -70,6 +80,7 @@ program
   .action(async () => {
     try {
       migrateBuild();
+      process.exit(0);
     } catch (error) {
       console.error(chalk.red('Error:'), error);
       process.exit(1);
@@ -82,6 +93,7 @@ program
   .action(async () => {
     try {
       await migrateApply();
+      process.exit(0);
     } catch (error) {
       console.error(chalk.red('Error:'), error);
       process.exit(1);
