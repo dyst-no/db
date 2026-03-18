@@ -1,12 +1,9 @@
-import { SQL } from 'bun';
 import * as fs from 'node:fs';
 import chalk from 'chalk';
 import { config, resolvePath } from '../config';
-import { getEnvironment } from '../environment';
+import { createPostgresClient } from '../postgres';
 
 export async function migrateApply() {
-  const env = getEnvironment();
-
   const migrationFile = resolvePath(config.migrationFile);
 
   if (!fs.existsSync(migrationFile)) {
@@ -14,12 +11,7 @@ export async function migrateApply() {
     throw new Error('Migration file not found');
   }
 
-  const sql = new SQL({
-    host: env.PGHOST,
-    user: env.PGUSER,
-    password: env.PGPASSWORD,
-    database: env.PGDATABASE,
-  });
+  const sql = createPostgresClient();
 
   try {
     const migrationSql = fs.readFileSync(migrationFile, 'utf-8').trim();

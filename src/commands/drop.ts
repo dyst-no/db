@@ -1,17 +1,11 @@
-import { SQL } from 'bun';
 import chalk from 'chalk';
 import { getEnvironment } from '../environment';
+import { createPostgresClient, quoteDatabaseName } from '../postgres';
 
 export async function drop() {
   const env = getEnvironment();
 
-  // Connect to postgres database to be able to drop the target database
-  const sql = new SQL({
-    host: env.PGHOST,
-    user: env.PGUSER,
-    password: env.PGPASSWORD,
-    database: 'postgres',
-  });
+  const sql = createPostgresClient('postgres');
 
   try {
     // Drop connections
@@ -22,8 +16,7 @@ export async function drop() {
       AND pid <> pg_backend_pid();
     `;
 
-    // Drop database
-    await sql`DROP DATABASE IF EXISTS ${sql(env.PGDATABASE)};`;
+    await sql.unsafe(`DROP DATABASE IF EXISTS ${quoteDatabaseName(env.PGDATABASE)};`);
     console.log(chalk.green('✅ Dropped database'));
   } catch (error) {
     console.error(chalk.red('⛔ Failed to drop database:'), error);

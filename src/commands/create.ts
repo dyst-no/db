@@ -1,21 +1,14 @@
-import { SQL } from 'bun';
 import chalk from 'chalk';
 import { getEnvironment } from '../environment';
+import { createPostgresClient, quoteDatabaseName } from '../postgres';
 
 export async function create() {
   const env = getEnvironment();
 
-  // Connect to postgres database to be able to create the target database
-  const sql = new SQL({
-    host: env.PGHOST,
-    user: env.PGUSER,
-    password: env.PGPASSWORD,
-    database: 'postgres',
-  });
+  const sql = createPostgresClient('postgres');
 
   try {
-    // Create database
-    await sql`CREATE DATABASE ${sql(env.PGDATABASE)};`;
+    await sql.unsafe(`CREATE DATABASE ${quoteDatabaseName(env.PGDATABASE)};`);
     console.log(chalk.green('✅ Created database'));
   } catch (error) {
     console.error(chalk.red('⛔ Failed to create database:'), error);

@@ -1,22 +1,13 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { SQL } from 'bun';
 import chalk from 'chalk';
 import { config, resolvePath } from '../config';
-import { getEnvironment } from '../environment';
+import { createPostgresClient } from '../postgres';
 
 export async function seed() {
-  const env = getEnvironment();
-
   const seedsDir = resolvePath(config.seedsDir);
 
-  // Connect to the database
-  const sql = new SQL({
-    host: env.PGHOST,
-    user: env.PGUSER,
-    password: env.PGPASSWORD,
-    database: env.PGDATABASE,
-  });
+  const sql = createPostgresClient();
 
   try {
     // Get all seed files
