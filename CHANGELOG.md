@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2 - 2026-03-18
+
+- use postgres client in db commands ([`0c4580a`](https://github.com/dyst-no/db/commit/0c4580a75ef74a2959c3bfdb61d85318be1791db))
+- Merge branch 'main' of https://github.com/dyst-no/db ([`5117f7f`](https://github.com/dyst-no/db/commit/5117f7fe034c5a5e9473f8f7a2d5511f0dde231f))
+
 ## 0.1.1 - 2026-03-18
 
 - add local verification commands ([`b8a592e`](https://github.com/dyst-no/db/commit/b8a592e196206ea7c1b79c8f7fe19a4bea732eb5))
