@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 - 2026-03-18
+
+- add local verification commands ([`b8a592e`](https://github.com/dyst-no/db/commit/b8a592e196206ea7c1b79c8f7fe19a4bea732eb5))
+- use tsc for db typecheck ([`42effe1`](https://github.com/dyst-no/db/commit/42effe166106a5f6acd31aadf7a9b93839239000))
+
 ## 0.1.0 - 2026-03-18
 
 - (feat): initial public commit ([`9dc7156`](https://github.com/dyst-no/db/commit/9dc71565d2c7d7dc5bfdd8b0b765c34c3a247fa3))

@@ -1,6 +1,6 @@
 {
   "name": "@dyst-no/db",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Database CLI and helpers for Dyst projects.",
   "keywords": [
     "database",
