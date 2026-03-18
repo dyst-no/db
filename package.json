@@ -1,6 +1,6 @@
 {
   "name": "@dyst-no/db",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Database CLI and helpers for Dyst projects.",
   "keywords": [
     "database",
@@ -27,7 +27,7 @@
     "./package.json": "./package.json"
   },
   "bin": {
-    "dyst-db": "./dist/cli.mjs"
+    "dyst-db": "dist/cli.mjs"
   },
   "files": [
     "dist",
