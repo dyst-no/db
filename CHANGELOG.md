@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3 - 2026-03-19
+
+- fix db cli argument parsing ([`2ad4d01`](https://github.com/dyst-no/db/commit/2ad4d01e8aa33cf73e9ea8c8dc95c70b42f17afc))
+
 ## 0.1.2 - 2026-03-18
 
 - use postgres client in db commands ([`0c4580a`](https://github.com/dyst-no/db/commit/0c4580a75ef74a2959c3bfdb61d85318be1791db))
