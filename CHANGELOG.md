@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.4 - 2026-10-15
+
+- chore: add bunfig minimumReleaseAge of 7 days ([`5dbb91b`](https://github.com/dyst-no/db/commit/5dbb91b369976e26eef073701611859e2a4f339f))
+- chore: exclude @dyst-no/* scope from minimumReleaseAge gate ([`565afc5`](https://github.com/dyst-no/db/commit/565afc587053104778ca9ae23d29f7fca0e3ae19))
+- Merge pull request #1 from dyst-no/chore/bunfig-min-release-age ([`803688b`](https://github.com/dyst-no/db/commit/803688b4abae98e8f473ba8bd5097d09d09180f4))
+- fix: declare runtime dependencies so dyst-db works in a clean project (#3) ([`bd95c6f`](https://github.com/dyst-no/db/commit/bd95c6f2a2db817a912fa8b2748696d942ac4943))
+
 ## 0.1.3 - 2026-03-19
 
 - fix db cli argument parsing ([`2ad4d01`](https://github.com/dyst-no/db/commit/2ad4d01e8aa33cf73e9ea8c8dc95c70b42f17afc))
