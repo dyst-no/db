@@ -9,7 +9,4 @@ export default defineConfig({
   dts: true,
   clean: true,
   sourcemap: true,
-  deps: {
-    neverBundle: ['chalk', 'commander', 'dotenv', 'postgres', 'zod'],
-  },
 });
