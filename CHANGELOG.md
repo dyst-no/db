@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 - 2026-11-13
+
+- migrate:build keeps comments; migration.sql has each migration as written ([`5a14e43`](https://github.com/dyst-no/db/commit/5a14e438ac55c59fcf99a8611904ced24877e47c))
+- Merge pull request #8 from dyst-no/keep-comments ([`636be65`](https://github.com/dyst-no/db/commit/636be657061d3ea5eda3a982f9fbfda71936120c))
+
 ## 0.3.0 - 2026-11-13
 
 - Drop zod; postgres is the only dependency, as a peer ([`4570af1`](https://github.com/dyst-no/db/commit/4570af17c4a400ca4e1bc283af00fb527f353f31))
