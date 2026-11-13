@@ -1,10 +1,10 @@
 import { z } from 'zod';
-import dotenv from 'dotenv';
-import chalk from 'chalk';
+import * as fs from 'node:fs';
+import { styleText } from 'node:util';
 
 export function getEnvironment() {
   // Load environment variables from .env file
-  dotenv.config();
+  if (fs.existsSync('.env')) process.loadEnvFile();
 
   try {
     return z
@@ -17,14 +17,14 @@ export function getEnvironment() {
       .parse(process.env);
   } catch (error) {
     console.error(
-      chalk.red('Missing environment variables in .env file:'),
+      styleText('red', 'Missing environment variables in .env file:'),
       error instanceof Error ? error.message : String(error),
     );
 
     const required = ['PGHOST', 'PGUSER', 'PGPASSWORD', 'PGDATABASE'];
     for (const name of required) {
       if (!process.env[name]) {
-        console.error(chalk.yellow(`${name}`));
+        console.error(styleText('yellow', `${name}`));
       }
     }
 

@@ -1,6 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import chalk from 'chalk';
+import { styleText } from 'node:util';
 import { config, resolvePath } from '../config';
 import { createPostgresClient } from '../postgres';
 
@@ -17,7 +17,7 @@ export async function seed() {
       .sort();
 
     if (seedFiles.length === 0) {
-      console.log(chalk.blue('ℹ️  No seed files found'));
+      console.log(styleText('blue', 'ℹ️  No seed files found'));
       return;
     }
 
@@ -25,10 +25,10 @@ export async function seed() {
     for (const file of seedFiles) {
       const seedContent = fs.readFileSync(path.join(seedsDir, file), 'utf-8');
       await sql.unsafe(seedContent);
-      console.log(chalk.green(`✅ Applied seed: ${file}`));
+      console.log(styleText('green', `✅ Applied seed: ${file}`));
     }
   } catch (error) {
-    console.error(chalk.red('⛔ Failed to seed database:'), error);
+    console.error(styleText('red', '⛔ Failed to seed database:'), error);
     throw error;
   } finally {
     await sql.end();

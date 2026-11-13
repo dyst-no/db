@@ -1,6 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import chalk from 'chalk';
+import { styleText } from 'node:util';
 import { config, resolvePath } from '../config';
 
 function buildMigration(filename: string, migrationsDir: string) {
@@ -66,9 +66,9 @@ export function migrateBuild() {
       .trim();
 
     fs.writeFileSync(outputFile, migrationSql, 'utf-8');
-    console.log(chalk.green(`✅ Migration SQL built and saved to: ${outputFile}`));
+    console.log(styleText('green', `✅ Migration SQL built and saved to: ${outputFile}`));
   } catch (error) {
-    console.error(chalk.red('⛔ Failed to build migration SQL:'), error);
+    console.error(styleText('red', '⛔ Failed to build migration SQL:'), error);
     throw error;
   }
 }
