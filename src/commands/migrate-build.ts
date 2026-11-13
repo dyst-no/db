@@ -60,8 +60,6 @@ export function migrateBuild() {
     `
       // remove empty lines
       .replace(/\n\s*\n/g, '\n\n')
-      // remove comments
-      .replace(/^--.*\n/gm, '')
       // trim leading/trailing whitespace
       .trim();
 
