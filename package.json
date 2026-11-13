@@ -48,9 +48,6 @@
     "release:major": "node scripts/release.mjs major",
     "prepublishOnly": "bun run build && bun run typecheck"
   },
-  "dependencies": {
-    "zod": "^4.3.5"
-  },
   "peerDependencies": {
     "postgres": "^3.4.5"
   },
