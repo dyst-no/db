@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 - 2026-11-13
+
+- Drop zod; postgres is the only dependency, as a peer ([`4570af1`](https://github.com/dyst-no/db/commit/4570af17c4a400ca4e1bc283af00fb527f353f31))
+- Merge pull request #7 from dyst-no/drop-zod ([`b605857`](https://github.com/dyst-no/db/commit/b605857baa13b5b41d8a187681ac3dcb9cba0d63))
+
 ## 0.2.0 - 2026-11-13
 
 - Drop chalk, commander and dotenv; zod and postgres stay the only runtime dependencies ([`7c3105c`](https://github.com/dyst-no/db/commit/7c3105c3e1e08a5d242b76ef7c87419fd7c534fc))
