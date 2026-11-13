@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.0 - 2026-11-13
+
+- Drop chalk, commander and dotenv; zod and postgres stay the only runtime dependencies ([`7c3105c`](https://github.com/dyst-no/db/commit/7c3105c3e1e08a5d242b76ef7c87419fd7c534fc))
+- Merge pull request #6 from dyst-no/drop-cli-deps ([`c659021`](https://github.com/dyst-no/db/commit/c659021da8bf65e78d2af4f79ab9f4653c6fd1a5))
+
 ## 0.1.5 - 2026-11-13
 
 - Type check with bun check instead of tsc ([`2c007dd`](https://github.com/dyst-no/db/commit/2c007ddc5e712a6de3ad8d7fbb7fe4b20e485843))
