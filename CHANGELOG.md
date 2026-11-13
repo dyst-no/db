@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.5 - 2026-11-13
+
+- Type check with bun check instead of tsc ([`2c007dd`](https://github.com/dyst-no/db/commit/2c007ddc5e712a6de3ad8d7fbb7fe4b20e485843))
+- Merge pull request #4 from dyst-no/bun-check ([`5319c9c`](https://github.com/dyst-no/db/commit/5319c9c25536257cc0e91a8b785926ae3fe512fe))
+- fix: migrate:build strips every comment line, not every other one ([`cf6429b`](https://github.com/dyst-no/db/commit/cf6429b9435c3d67a4de6646f03e0281ef696f87))
+- Merge pull request #5 from dyst-no/fix/strip-every-comment-line ([`aeff506`](https://github.com/dyst-no/db/commit/aeff506e2b5f08b50bdfb8119e2758060c80e033))
+
 ## 0.1.4 - 2026-10-15
 
 - chore: add bunfig minimumReleaseAge of 7 days ([`5dbb91b`](https://github.com/dyst-no/db/commit/5dbb91b369976e26eef073701611859e2a4f339f))
