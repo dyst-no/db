@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1 - 2026-11-13
+
+- Remove @types/node; Node types come from @types/bun via bun-types ([`2fc970b`](https://github.com/dyst-no/db/commit/2fc970bb1dd1c12f92c3ea9b89b37ca55de2250f))
+- Merge pull request #9 from dyst-no/dependency-cuts ([`635099e`](https://github.com/dyst-no/db/commit/635099e96e96657f3483d441bd8501296489b193))
+
 ## 0.4.0 - 2026-11-13
 
 - migrate:build keeps comments; migration.sql has each migration as written ([`5a14e43`](https://github.com/dyst-no/db/commit/5a14e438ac55c59fcf99a8611904ced24877e47c))
