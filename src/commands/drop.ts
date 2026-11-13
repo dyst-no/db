@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import { styleText } from 'node:util';
 import { getEnvironment } from '../environment';
 import { createPostgresClient, quoteDatabaseName } from '../postgres';
 
@@ -17,9 +17,9 @@ export async function drop() {
     `;
 
     await sql.unsafe(`DROP DATABASE IF EXISTS ${quoteDatabaseName(env.PGDATABASE)};`);
-    console.log(chalk.green('✅ Dropped database'));
+    console.log(styleText('green', '✅ Dropped database'));
   } catch (error) {
-    console.error(chalk.red('⛔ Failed to drop database:'), error);
+    console.error(styleText('red', '⛔ Failed to drop database:'), error);
     throw error;
   } finally {
     await sql.end();
